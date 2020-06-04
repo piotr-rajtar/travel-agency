@@ -21,9 +21,17 @@ class TripListOptions extends React.Component {
     console.log('Changing duration', type, value);
 
     if (type === 'from') {
+
       this.props.changeDurationFrom(value);
-    } else if (type === 'to') {
+
+      return;
+
+    } 
+    
+    if (type === 'to') {
+
       this.props.changeDurationTo(value);
+
     }
     // DONE - use action dispatcher from props
   }
