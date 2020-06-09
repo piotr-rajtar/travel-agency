@@ -10,27 +10,18 @@ class OrderOptionIcons extends React.Component {
       values: PropTypes.array,
       required: PropTypes.bool,
       setOptionValue: PropTypes.func,
+      currentValue: PropTypes.string,
     }
 
     render() {
-      const {values, required, setOptionValue} = this.props;
-      let checked = false;
-
-      let className = styles.icon;
-
-      if (checked) {
-        className+=styles.iconActive;
-      }
+      const {values, required, setOptionValue, currentValue} = this.props;
         
       return(
-        <div className={className}>
+        <div className={styles.icon}>
 
           {required ? '' : (
             <div
-              className={
-                styles.icon, 
-                checked? styles.iconActive : ''
-              }
+              className={styles.icon }
               setOptionValue=''
             >
               <Icon name='times-circle'></Icon>
@@ -43,13 +34,9 @@ class OrderOptionIcons extends React.Component {
               key={value.id}
               className={
                 styles.icon, 
-                checked? styles.iconActive : ''
+                (currentValue === value.id ? styles.iconActive : '')
               }
-              onClick = {
-                checked = true, 
-                event => (
-                  setOptionValue(event.currentTarget.value)
-                )
+              onClick = {() => (setOptionValue(value.id))
               }
             >
               <Icon name={value.icon} />
