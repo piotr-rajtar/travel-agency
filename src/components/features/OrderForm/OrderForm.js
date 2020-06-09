@@ -7,7 +7,6 @@ import {Row, Col} from 'react-flexbox-grid';
 import OrderSummary from '../OrderSummary/OrderSummary';
 import OrderOption from '../OrderOption/OrderOption';
 import pricing from '../../../data/pricing.json';
-import { setOrderOption } from '../../../redux/orderRedux';
 
 class OrderForm extends React.Component {
     static propTypes = {
@@ -17,7 +16,7 @@ class OrderForm extends React.Component {
     }
   
     render() {
-      const {tripCost, options} = this.props;
+      const {tripCost, options, setOrderOption} = this.props;
 
       return (
         <Row>
