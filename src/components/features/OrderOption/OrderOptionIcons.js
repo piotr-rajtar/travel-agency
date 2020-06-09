@@ -16,36 +16,33 @@ class OrderOptionIcons extends React.Component {
     render() {
       const {values, required, setOptionValue, currentValue} = this.props;
         
-      return(
-        <div className={styles.icon}>
-
-          {required ? '' : (
-            <div
-              className={styles.icon }
-              setOptionValue=''
-            >
-              <Icon name='times-circle'></Icon>
-              none
-            </div>
-          )}
-
-          {values.map(value => (
-            <div
-              key={value.id}
-              className={
-                styles.icon, 
-                (currentValue === value.id ? styles.iconActive : '')
-              }
-              onClick = {() => (setOptionValue(value.id))
-              }
-            >
-              <Icon name={value.icon} />
-              {value.name}
-              ({formatPrice(value.price)})
-            </div>
-          ))}
-        </div>
-      );
+      if (required) {
+        return (
+          <div className={styles.icon}>
+            {values.map(value => (
+              <div
+                key={value.id}
+                className={
+                  styles.icon, 
+                  (currentValue === value.id ? styles.iconActive : '')
+                }
+                onClick = {() => (setOptionValue(value.id))}
+              >
+                <Icon name={value.icon} />
+                {value.name}
+                ({formatPrice(value.price)})
+              </div>
+            ))}
+          </div>
+        );
+      } else {
+        return (
+          <div className={styles.icon} {...window.onload = () => setOptionValue('')}>
+            <Icon name='times-circle'></Icon>
+            none
+          </div>
+        );
+      }
     }
 }
 
