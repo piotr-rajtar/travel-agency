@@ -22,7 +22,7 @@ class OrderForm extends React.Component {
         <Row>
           {pricing.map(optionData => (
             <Col md={4} key={optionData.id} >
-              <OrderOption {...optionData} currentValue={options[optionData.id]} setOrderOption={setOrderOption} />
+              <OrderOption {...optionData} currentValue={options[optionData.id]} setOrderOption={setOrderOption} tripCost={tripCost} />
             </Col>
           ))}
           <Col xs={12}>
