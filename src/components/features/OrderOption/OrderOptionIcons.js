@@ -14,8 +14,10 @@ class OrderOptionIcons extends React.Component {
     }
 
     componentDidMount() {
-      if (!this.props.required) {
-        this.props.setOptionValue('');
+      const {required, setOptionValue} = this.props;
+
+      if (!required) {
+        setOptionValue('');
       }
     }
 
