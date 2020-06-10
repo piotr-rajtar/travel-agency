@@ -13,6 +13,22 @@ class OrderOptionIcons extends React.Component {
       currentValue: PropTypes.string,
     }
 
+    componentDidMount() {
+      if (!this.props.required) {
+        this.props.setOptionValue('');
+      }
+    }
+
+    /*constructor(props) {  //same functionality as componentDidMount()
+      super(props);
+
+      if (!this.props.required) {
+        this.props.setOptionValue('');
+      }
+    } */
+
+
+
     render() {
       const {values, required, setOptionValue, currentValue} = this.props;
         
@@ -36,7 +52,6 @@ class OrderOptionIcons extends React.Component {
           </div>
         );
       } else {
-        setOptionValue('');
         return (
           <div className={styles.icon}>
             <Icon name='times-circle'></Icon>
