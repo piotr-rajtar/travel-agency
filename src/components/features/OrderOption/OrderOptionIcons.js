@@ -36,8 +36,9 @@ class OrderOptionIcons extends React.Component {
           </div>
         );
       } else {
+        setOptionValue('');
         return (
-          <div className={styles.icon} {...window.onload = () => setOptionValue('')}>
+          <div className={styles.icon}>
             <Icon name='times-circle'></Icon>
             none
           </div>

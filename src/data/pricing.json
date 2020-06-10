@@ -13,7 +13,7 @@
     "id": "accommodation",
     "name": "Accommodation",
     "type": "icons",
-    "required": true,
+    "required": false,
     "defaultValue": "hotel",
     "values": [
       {"id": "hotel", "icon": "h-square", "name": "Hotel room", "price": 0},
