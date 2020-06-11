@@ -33,8 +33,6 @@ class OrderOptionCheckboxes extends React.Component {
       }
     };
 
-    
-
     return (
       <div className={styles.checkboxes}>
         {values.map( value =>(
@@ -53,9 +51,5 @@ class OrderOptionCheckboxes extends React.Component {
     );
   }
 }
-
-/*const OrderOptionCheckboxes = () => (
-  <div>OrderOptionCheckboxes</div>
-); */
 
 export default OrderOptionCheckboxes;
