@@ -19,6 +19,7 @@ class OrderOptionDate extends React.Component {
         <DatePicker
           value={currentValue}
           onChange={date => setOptionValue(setDataFormat(date))}
+          minDate={new Date()}
         />
       );
     }
