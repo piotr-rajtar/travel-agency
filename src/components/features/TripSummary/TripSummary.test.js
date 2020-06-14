@@ -97,6 +97,7 @@ describe('Component TripSummary', () => {
     />);
 
     expect(component.contains('.tags')).toBe(false);
+    //expect(component.find('.tags')).toEqual({});
 
   });
 
