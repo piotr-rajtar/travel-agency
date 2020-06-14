@@ -13,13 +13,13 @@ class OrderOptionIcons extends React.Component {
       currentValue: PropTypes.string,
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
       const {required, setOptionValue} = this.props;
 
       if (!required) {
         setOptionValue('');
       }
-    }
+    } /* -----> must be commented, hotel must stay as default value if option is not required
 
     /*constructor(props) {  //same functionality as componentDidMount()
       super(props);
@@ -27,7 +27,7 @@ class OrderOptionIcons extends React.Component {
       if (!this.props.required) {
         this.props.setOptionValue('');
       }
-    } */
+    }*/
 
 
 

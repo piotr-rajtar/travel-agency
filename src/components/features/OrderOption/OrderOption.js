@@ -29,7 +29,7 @@ const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
           {name}
         </h3>
         <OptionComponent
-          setOptionValue={value => setOrderOption({[id]: value})} 
+          setOptionValue={value => setOrderOption({[id]: value})}
           {...otherProps} 
         />
       </div> 
