@@ -14,31 +14,40 @@ import {formatPrice} from '../../../utils/formatPrice';
 import {calculateTotal} from '../../../utils/calculateTotal';
 
 const sendOrder = (options, tripCost, tripData) => {
-  const totalCost = formatPrice(calculateTotal(tripCost, options));
+  if ((options.name != '') && (options.contact != '')) {
 
-  const payload = {
-    ...tripData,
-    ...options,
-    totalCost,
-  };
+    const totalCost = formatPrice(calculateTotal(tripCost, options));
 
-  const url = settings.db.url + '/' + settings.db.endpoint.orders;
+    const payload = {
+      ...tripData,
+      ...options,
+      totalCost,
+    };
+  
+    const url = settings.db.url + '/' + settings.db.endpoint.orders;
+  
+    const fetchOptions = {
+      cache: 'no-cache',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+  
+    fetch(url, fetchOptions)
+      .then(function(response){
+        return response.json();
+      }).then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+      });
+  } else {
 
-  const fetchOptions = {
-    cache: 'no-cache',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  };
+    return window.alert('Name and contact are required');
 
-  fetch(url, fetchOptions)
-    .then(function(response){
-      return response.json();
-    }).then(function(parsedResponse){
-      console.log('parsedResponse', parsedResponse);
-    });
+  }
+
+
 };
 
 class OrderForm extends React.Component {
@@ -48,7 +57,7 @@ class OrderForm extends React.Component {
       setOrderOption: PropTypes.func,
       tripId: PropTypes.string,
       tripName: PropTypes.string,
-      tripCountryCode: PropTypes.string,
+      tripCountryCode: PropTypes.object,
     }
   
     render() {
