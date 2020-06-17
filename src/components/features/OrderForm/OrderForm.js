@@ -43,10 +43,9 @@ const sendOrder = (options, tripCost, tripData) => {
       });
   } else {
 
-    return window.alert('Name and contact are required');
+    return window.alert('Name and contact are required'); //TODO - correct empty field blockade
 
   }
-
 
 };
 
