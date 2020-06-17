@@ -36,7 +36,7 @@ class OrderOptionIcons extends React.Component {
         
       if (required) {
         return (
-          <div className={styles.icon}>
+          <div>
             {values.map(value => (
               <div
                 key={value.id}
@@ -55,7 +55,10 @@ class OrderOptionIcons extends React.Component {
         );
       } else {
         return (
-          <div className={styles.icon}>
+          <div 
+            className={styles.icon}
+            onClick = {() => (setOptionValue())}
+          >
             <Icon name='times-circle'></Icon>
             none
           </div>
