@@ -40,10 +40,7 @@ class DaysToSummer extends React.Component {
 
     if (daysNumber === 1) {
       dayString = 'day';
-    }
-
-    //{currentDay + ' ' + dayString + ' to summer'}
-    
+    }   
 
     return(
       <div className = {styles.component}>
